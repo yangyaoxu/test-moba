@@ -5,9 +5,9 @@
       <el-submenu index="1">
         <template slot="title"><i class="el-icon-message"></i>分类</template>
         <el-menu-item-group>
-          <template slot="title">分组一</template>
-          <el-menu-item index="/categories/create">选项1</el-menu-item>
-          <el-menu-item index="/categories/list">选项2</el-menu-item>
+          <template slot="title">物品</template>
+          <el-menu-item index="/items/create">新增物品</el-menu-item>
+          <el-menu-item index="/items/list">物品列表</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
       <el-submenu index="2">
