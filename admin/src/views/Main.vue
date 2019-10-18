@@ -9,6 +9,11 @@
           <el-menu-item index="/items/create">新增物品</el-menu-item>
           <el-menu-item index="/items/list">物品列表</el-menu-item>
         </el-menu-item-group>
+        <el-menu-item-group>
+          <template slot="title">文章</template>
+          <el-menu-item index="/articles/create">新增文章</el-menu-item>
+          <el-menu-item index="/articles/list">文章列表</el-menu-item>
+        </el-menu-item-group>
       </el-submenu>
       <el-submenu index="2">
         <template slot="title"><i class="el-icon-message"></i>运营管理</template>
