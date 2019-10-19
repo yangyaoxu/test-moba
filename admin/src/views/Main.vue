@@ -25,9 +25,9 @@
       <el-submenu index="2">
         <template slot="title"><i class="el-icon-message"></i>运营管理</template>
         <el-menu-item-group>
-          <template slot="title">分组一</template>
-          <el-menu-item index="/categories/create">选项1</el-menu-item>
-          <el-menu-item index="/categories/list">选项2</el-menu-item>
+          <template slot="title">广告位</template>
+          <el-menu-item index="/ads/create">新增广告位</el-menu-item>
+          <el-menu-item index="/ads/list">广告位列表</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
       <el-submenu index="3">
