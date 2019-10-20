@@ -37,6 +37,12 @@
           <el-menu-item index="/categories/create">新增分类</el-menu-item>
           <el-menu-item index="/categories/list">分类列表</el-menu-item>
         </el-menu-item-group>
+
+        <el-menu-item-group>
+          <template slot="title">管理员</template>
+          <el-menu-item index="/admin_users/create">新增管理员</el-menu-item>
+          <el-menu-item index="/admin_users/list">管理员列表</el-menu-item>
+        </el-menu-item-group>
       </el-submenu>
 
 
