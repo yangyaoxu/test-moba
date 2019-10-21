@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Login from './views/Login.vue'
 import Main from './views/Main.vue'
 import CategoryList from './views/CategoryList.vue'
 import CategoryEdit from './views/CategoryEdit.vue'
@@ -14,10 +15,12 @@ import AdEdit from './views/AdEdit.vue'
 import AdminUserList from './views/AdminUserList.vue'
 import AdminUserEdit from './views/AdminUserEdit.vue'
 
+
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
+    { path: '/login', name: 'login', component: Login , meta: {isPublic: true} },
     {
       path: '/',
       name: 'main',
@@ -49,6 +52,15 @@ export default new Router({
 
       ]
     },
-
   ]
 })
+router.beforeEach((to, from, next) => {
+  if(!to.meta.isPublic && !localStorage.token) {
+    return next('/login')
+  }
+  next()
+})
+
+
+
+export default router
