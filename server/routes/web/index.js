@@ -71,5 +71,13 @@ module.exports = app => {
          res.send(cats)
         
      })
+
+    router.get('/articles/:id', async (req,res) => {
+        const data = await Article.findById(req.params.id).lean()
+        data.related = await Article.find().where({
+            categories: { $in: data.categories }
+        })
+        res.send(data)
+    })
     app.use('/web/api', router)
 }
