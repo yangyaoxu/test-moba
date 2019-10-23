@@ -1,12 +1,14 @@
 <template>
     <div>
            <div class="card p-3 bg-white mt-3">
-               <div class="card-header d-flex ai-center">
+               <div class="card-header d-flex ai-center"
+               :class="{ 'border-bottom' : !plain, 'pb-3': !plain}">
+                  
                    <i class="iconfont" :class="`icon-${icon}`"></i>
                    <div class="flex-1 px-2">
                        <span>{{title}}</span>
                    </div>
-                   <i class="iconfont icon-menu"></i>
+                   <i class="iconfont icon-menu" v-if="!plain"></i>
                </div>
                <div class="card-body pt-3">
                    <slot></slot>

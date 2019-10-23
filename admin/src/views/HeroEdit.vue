@@ -14,6 +14,7 @@
             <el-upload
               class="avatar-uploader"
               :action="uploadUrl"
+              :headers="getAuthHeaders()"
               :show-file-list="false"
               :on-success="res => $set(model, 'avatar', res.url)"
             >
@@ -26,6 +27,7 @@
             <el-upload
               class="avatar-uploader"
               :action="uploadUrl"
+              :headers="getAuthHeaders()"
               :show-file-list="false"
               :on-success="res => $set(model, 'banner', res.url)"
             >
@@ -95,6 +97,7 @@
                 <el-upload
                   class="avatar-uploader"
                   :action="uploadUrl"
+                  :headers="getAuthHeaders()"
                   :show-file-list="false"
                   :on-success="res => $set(item, 'icon', res.url)"
                 >

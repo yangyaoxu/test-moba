@@ -12,7 +12,14 @@ Vue.mixin({
       uploadUrl() {
         return this.$http.defaults.baseURL + '/upload'
       }
-    }
+    },
+    methods: {
+      getAuthHeaders() {
+        return {
+          Authorization: `Bearer ${localStorage.token || ''}`
+        }
+      }
+    },
 })
 new Vue({
   router,

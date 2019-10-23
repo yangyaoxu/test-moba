@@ -9,6 +9,7 @@
         <el-upload
           class="avatar-uploader"
           :action= "uploadUrl"
+          :headers="getAuthHeaders()"
           :show-file-list="false"
           :on-success="afterUpload"
         >
