@@ -41,6 +41,24 @@
            </template>
 
         </m-list-card>
+        <m-list-card icon="card-hero" title="英雄列表" :categories="heroCats">
+            <template #items="{category}">
+              <div class="d-flex flex-wrap" style="margin: 0 -0.5rem;">
+                <router-link
+                tag="div"
+                :to="`/heroes/${hero._id}`"
+                class="p-2 text-center"
+                style="width: 20%"
+                  v-for="(hero, i) in category.heroList" :key="i">
+                  <img :src="hero.avatar" class="w-100">
+                  <div>{{hero.name}}</div>
+                  </router-link>
+              </div>
+            </template>
+            
+          
+        </m-list-card>
+
   </div>
 </template>
 <script>
@@ -68,10 +86,15 @@ export default {
     async fetchNewsCats () {
       const res = await this.$http.get('/news/list')
       this.newsCats = res.data
+    },
+    async fetchHeroesCats () {
+      const res = await this.$http.get('/heroes/list')
+      this.heroCats = res.data
     }
   },
   created() {
     this.fetchNewsCats();
+    this.fetchHeroesCats();
   },
 }
 </script>
