@@ -25,10 +25,34 @@
             <span>收起</span>
           </div>
         </div>
+        <!-- end of nav icons  -->
+        <m-list-card icon="Menu" title="新闻资讯" :categories="newsCats">
+           <template #items="{category}">
+             <router-link
+              tag="div"
+              class="py-2 fs-lg d-flex"
+              :to="`/articles/${news._id}`"
+              v-for="(news, i) in category.newsList" :key="i">
+              <span class="text-info">[{{news.categoryName}}]</span>
+              <span class="px-2">|</span>
+              <span class="flex-1 text-dark-1">{{news.title}}</span>
+              <span class="text-grey-1 fs-sm">{{news.createdAt | date}}</span>
+              </router-link>                        
+           </template>
+
+        </m-list-card>
   </div>
 </template>
 <script>
+import dayjs from "dayjs";
 export default {
+    filters: {
+     date(val) {
+       return dayjs(val).format("MM/DD");
+     }
+    },
+
+
   data() {
     return {
       swiperOption: {
@@ -36,8 +60,19 @@ export default {
             el: ".pagination-home"
           }
       },
+    newsCats: [],
+    heroCats: [],
+     }
+  },
+  methods: {
+    async fetchNewsCats () {
+      const res = await this.$http.get('/news/list')
+      this.newsCats = res.data
     }
-  }
+  },
+  created() {
+    this.fetchNewsCats();
+  },
 }
 </script>
 <style lang="scss">

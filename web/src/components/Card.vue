@@ -1,0 +1,26 @@
+<template>
+    <div>
+           <div class="card p-3 bg-white mt-3">
+               <div class="card-header d-flex ai-center">
+                   <i class="iconfont" :class="`icon-${icon}`"></i>
+                   <div class="flex-1 px-2">
+                       <span>{{title}}</span>
+                   </div>
+                   <i class="iconfont icon-menu"></i>
+               </div>
+               <div class="card-body pt-3">
+                   <slot></slot>
+               </div>
+           </div>
+    </div>
+</template>
+
+<script>
+export default {
+    props: {
+        title: { type: String, required: true},
+        icon: { type: String, required: true},
+        plain: { type: Boolean }
+    }
+}
+</script>
